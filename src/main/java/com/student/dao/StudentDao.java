@@ -9,6 +9,5 @@ public interface StudentDao {
 	public List<Student> getStudent();
 	public Student findById(final int id);
 	public Student update(final Student student, int id);
-	public Student updateCountry(final Student student, int id);
 	public void delete(final int id);
 }

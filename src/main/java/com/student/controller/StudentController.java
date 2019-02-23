@@ -9,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,14 +68,5 @@ public class StudentController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
-	@PatchMapping(value = "/{id}", headers = "Accept=application/json")
-	public ResponseEntity<Student> updateStudentPartially(final @PathVariable("id") int id,
-			@RequestBody Student currentStudent) {
-		Student student = studentService.findById(id);
-		if (student == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		Student usr = studentService.updatePartially(currentStudent, id);
-		return new ResponseEntity<>(usr, HttpStatus.OK);
-	}
+	
 }

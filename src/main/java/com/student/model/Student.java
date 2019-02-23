@@ -1,34 +1,27 @@
 package com.student.model;
 
-import java.util.List;
-
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "StudentInfo")
+@Table(name = "Student")
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "country")
+	@Column(name = "name")
 	private String name;
 
-	@Column(name = "country")
+	@Column(name = "address")
 	private String address;
 
-	@ElementCollection
-	@CollectionTable(name = "classNames", joinColumns = @JoinColumn(name = "id"))
-	@Column(name = "class")
-	private List<String> classes;
+	@Column(name = "classes")
+	private String classes;
 
 	public int getId() {
 		return id;
@@ -54,12 +47,14 @@ public class Student {
 		this.address = address;
 	}
 
-	public List<String> getClasses() {
+	public String getClasses() {
 		return classes;
 	}
 
-	public void setClasses(List<String> classes) {
+	public void setClasses(String classes) {
 		this.classes = classes;
 	}
+
+	
 
 }
