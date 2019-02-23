@@ -31,13 +31,8 @@ public class StudentServiceImp implements StudentService {
 	public void deleteStudentById(final int id) {
 		studentDao.delete(id);
 	}
-	@Override
-	public Student updatePartially(final Student student, final int id) {
-		studentDao.updateCountry(student,id);
-		return studentDao.findById(id);
-	}
+	
 
-	@Override
 	public Student update(final Student student, final int id) {
 		return studentDao.update(student, id);
 	}

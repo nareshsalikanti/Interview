@@ -10,5 +10,4 @@ public interface StudentService {
 	public Student findById(int id);
 	public Student update(Student student, int id);
 	public void deleteStudentById(int id);
-	public Student updatePartially(Student student, int id);
 }
