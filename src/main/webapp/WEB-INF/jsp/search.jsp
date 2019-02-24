@@ -8,10 +8,11 @@
         </head>
         <body>
             <form:form id="loginForm" modelAttribute="search" action="search" method="post">
-                <table align="center">
+                <table align="left">
+                 <H1>Search Student </H1>
                     <tr>
                         <td>
-                            <form:label path="studentname">Enter student name: </form:label>
+                            <form:label path="studentname">Student name: </form:label>
                         </td>
                         <td>
                             <form:input path="studentname" name="studentname" id="studentname" />

@@ -7,10 +7,11 @@
         </head>
         <body>
             <form:form id="regForm" modelAttribute="student" action="registerProcess" method="post">
-                <table align="center">
+                <table align="left">
+                <H1>Enter Student details</H1>
                     <tr>
                         <td>
-                            <form:label path="name">student name</form:label>
+                            <form:label path="name">Enter Student name</form:label>
                         </td>
                         <td>
                             <form:input path="name" name="studentname" id="studentname" />
@@ -18,7 +19,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <form:label path="address">address</form:label>
+                            <form:label path="address">Enter address</form:label>
                         </td>
                         <td>
                             <form:input path="address" name="address" id="address" />

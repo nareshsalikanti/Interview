@@ -8,7 +8,8 @@
         </head>
         <body>
             <form:form id="updateForm" modelAttribute="student" action="updateProcess" method="post">
-                <table align="center">
+                <table align="left">
+                <h1>Update Student Name</h1>
                     <tr>
                         <td>
                             <form:label path="studentname">Enter new name </form:label>

@@ -9,28 +9,28 @@
 <body>
 	<table align="center">
 		<tr>
-			<td>Welcome</td>
+			<H1>Welcome to Student Database</H1>
 		</tr>
 	</table>
 	<table align="left">
 		<tr>
-			<td><a href="register">Register</a></td>
+			<h1><a href="register">Register</a></h1>
 		</tr>
 	</table>
 	<table align="center">
 		<tr>
-			<td><a href="search">Search</a></td>
+			<h1><a href="search">Search</a></h1>
 		</tr>
 	</table>
 	
 	<table align="right">
 		<tr>
-			<td><a href="update">Update</a></td>
+			<h1><a href="update">Update</a></h1>
 		</tr>
 	</table>
 	<table align="center">
 		<tr>
-			<td><a href="searchAll">Search All</a></td>
+			<h1><a href="searchAll">Search All</a></h1>
 		</tr>
 	</table>
 	
