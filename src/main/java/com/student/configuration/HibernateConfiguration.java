@@ -16,6 +16,4 @@ public class HibernateConfiguration {
          return factory;
     }
 
-
-
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.student.model.Student;
 import com.student.service.StudentService;
@@ -36,10 +35,9 @@ public class StudentController {
 	}
 
 	@PostMapping(value = "/create", headers = "Accept=application/json")
-	public ResponseEntity<Void> createStudent(final @RequestBody Student student, final UriComponentsBuilder ucBuilder) {
+	public ResponseEntity<Void> createStudent(final @RequestBody Student student) {
 		studentService.createStudent(student);
 		HttpHeaders headers = new HttpHeaders();
-		headers.setLocation(ucBuilder.path("/Student/{id}").buildAndExpand(student.getId()).toUri());
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 
@@ -68,5 +66,4 @@ public class StudentController {
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
-	
 }

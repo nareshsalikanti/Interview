@@ -37,4 +37,8 @@ public class StudentServiceImp implements StudentService {
 		return studentDao.update(student, id);
 	}
 
+	public Student findByName(String name) {
+		return studentDao.findByName(name);
+	}
+
 }

@@ -10,4 +10,5 @@ public interface StudentDao {
 	public Student findById(final int id);
 	public Student update(final Student student, int id);
 	public void delete(final int id);
+	public Student findByName(final String name);
 }
