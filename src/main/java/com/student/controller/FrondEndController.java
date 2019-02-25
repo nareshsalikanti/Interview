@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ import com.student.service.StudentService;
 @RequestMapping(value = { "/student" })
 public class FrondEndController {
 
+	private static final Logger logger = LoggerFactory.getLogger(FrondEndController.class);
+
 	@Autowired
 	StudentService studentService;
 
@@ -33,14 +37,14 @@ public class FrondEndController {
 		mav.addObject("home", new Login());
 		return mav;
 	}
+
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("search");
 		mav.addObject("search", new Login());
 		return mav;
 	}
-	
-	
+
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public ModelAndView update(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView("update");
@@ -61,7 +65,7 @@ public class FrondEndController {
 		studentService.createStudent(student);
 		return new ModelAndView("created", "firstname", student.getName());
 	}
-	
+
 	@RequestMapping(value = "/updateProcess", method = RequestMethod.POST)
 	public ModelAndView updatestudent(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("student") Student student) {
@@ -69,15 +73,13 @@ public class FrondEndController {
 		return new ModelAndView("updated", "firstname", student.getName());
 	}
 
-	
 	@RequestMapping(value = "/searchAll", method = RequestMethod.GET)
 	public ModelAndView searchAll(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("student") Student student) {
 		List<Student> allStudents = studentService.getStudent();
 		return new ModelAndView("showAll", "allStudents", allStudents);
 	}
-	
-	
+
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("search") Login login) {
@@ -91,7 +93,5 @@ public class FrondEndController {
 		}
 		return mav;
 	}
-	
-	
 
 }

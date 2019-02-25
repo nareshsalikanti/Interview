@@ -17,7 +17,7 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@Column(name = "name")
+	@Column(name = "name" ,nullable = false)
 	private String name;
 
 	@Column(name = "address")
@@ -56,6 +56,11 @@ public class Student {
 
 	public void setClasses(String classes) {
 		this.classes = classes;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", address=" + address + ", classes=" + classes + "]";
 	}
 
 	

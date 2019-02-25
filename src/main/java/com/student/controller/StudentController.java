@@ -2,6 +2,8 @@ package com.student.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,11 +24,14 @@ import com.student.service.StudentService;
 @RestController
 @RequestMapping(value = { "/student" })
 public class StudentController {
+	private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
+
 	@Autowired
 	StudentService studentService;
 
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Student> getStudentById(final @PathVariable("id") int id) {
+		logger.info("Request with id " +id);
 		Student student = studentService.findById(id);
 		if (student == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -36,6 +41,7 @@ public class StudentController {
 
 	@PostMapping(value = "/create", headers = "Accept=application/json")
 	public ResponseEntity<Void> createStudent(final @RequestBody Student student) {
+		logger.info("Create student with details " +student);
 		studentService.createStudent(student);
 		HttpHeaders headers = new HttpHeaders();
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
@@ -43,6 +49,7 @@ public class StudentController {
 
 	@GetMapping(value = "/get", headers = "Accept=application/json")
 	public List<Student> getAllStudent() {
+		logger.info("Search all students ");
 		return studentService.getStudent();
 	}
 
